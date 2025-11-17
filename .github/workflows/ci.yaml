@@ -16,5 +16,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Run Tests
+        needs: build
         run: |
           echo "Running tests on Project ..."
