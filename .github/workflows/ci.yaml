@@ -14,10 +14,10 @@ jobs:
       - name: Generate a Random Number
         id: random_number
         run: |
-          echo "::set-output name=number::$(shuf -i 1-100 -n 1)"
+          echo "RANDOM_NUMBER_VAR=$(shuf -i 1-100 -n 1)" >> "$GITHUB_ENV"
       - name: Print The Random Number
         run: |
-          echo "The random number is ${{ steps.random_number.outputs.number }}"
+          echo "The random number is $RANDOM_NUMBER_VAR"
       - name: Build Project
         run: |
           echo "Building Project ..."
