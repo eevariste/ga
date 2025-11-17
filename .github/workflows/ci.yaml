@@ -14,8 +14,8 @@ jobs:
           echo "Building Project ..."
   test:
     runs-on: ubuntu-latest
+    needs: build
     steps:
       - name: Run Tests
-        needs: build
         run: |
           echo "Running tests on Project ..."
