@@ -9,6 +9,15 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout Repo
+        uses: actions@checkout@v5
+      - name: Generate a Random Number
+        id: random_number
+        run: |
+          echo "::set-output name=number::$(shuf -i 1-100 -n 1)"
+      - name: Print The Random Number
+        run: |
+          echo "The random number is ${{ steps.random_number.outputs.number }}"
       - name: Build Project
         run: |
           echo "Building Project ..."
