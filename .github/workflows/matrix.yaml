@@ -1,0 +1,21 @@
+on:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os:
+          - ubuntu-latest
+          - window-latest
+          - macos-latest
+        node-version:
+          - 12
+          - 14
+          - 16
+      steps:
+        - name: Run Matrix
+          run: |
+            echo "OS: ${{ matrix.os }}"
+            echo "Node Version: ${{ matrix.node-version }}"
+
